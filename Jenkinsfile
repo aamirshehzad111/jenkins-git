@@ -6,11 +6,11 @@ node {
   git 'https://github.com/aamirshehzad111/jenkins-git.git'
  
   stage 'Docker build'
-  docker.build('demo')
+  docker.build('jenkins-project')
  
   stage 'Docker push'
   sh "\$(aws ecr get-login --no-include-email --region us-east-1)"
   docker.withRegistry('https://020046395185.dkr.ecr.us-east-1.amazonaws.com/jenkins-project') {
-    docker.image('demo').push("${last_commit}")
+    docker.image('jenkins-project').push("${last_commit}")
   }
 }
