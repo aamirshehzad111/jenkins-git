@@ -14,3 +14,11 @@ node {
     docker.image('jenkins-project').push("${last_commit}")
   }
 }
+
+stage('Deploy'){
+
+ sh "sed -i 's|{{image}}|${docker_repo_uri}:${last_commit}|' taskdef.json"
+ sh "aws ecs register-task-definition --execution-role-arn arn:aws:iam::020046395185:role/ecsTaskExecutionRole --cli-input-json file://taskdef.json --region ${region}"
+
+
+}
