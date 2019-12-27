@@ -7,9 +7,9 @@ node {
   git 'https://github.com/aamirshehzad111/jenkins-git.git'
   
  
-    properties([
+  properties([
       parameters(
-         [string(defaultValue: 'cluster-one', description: 'Enter reference cluster name', name: 'cluster')] 
+         [string(defaultValue: 'cluster-one', description: 'Enter reference cluster name', name: 'clusterValue')] 
       )
 
   ]) 
@@ -32,7 +32,7 @@ node {
   //sh "cat taskdef.json | cat > taskdef1.json"
   //sh "aws ecs register-task-definition --execution-role-arn arn:aws:iam::020046395185:role/ecsTaskExecutionRole --cli-input-json file://taskdef1.json --region us-east-1"
     withAWS(region:'us-east-1') {
-       def outputs = cfnUpdate(stack: "service-stack",params:['ClusterName': "${cluster}", 'ImageUrl': "${taskDefImage}"], url:'https://aamir-learning.s3.amazonaws.com/Ecs_jenkin_cf/service.yaml')
+       def outputs = cfnUpdate(stack: "service-stack",params:['ClusterName': "${clusterValue}", 'ImageUrl': "${taskDefImage}"], url:'https://aamir-learning.s3.amazonaws.com/Ecs_jenkin_cf/service.yaml')
          
     }
   }
