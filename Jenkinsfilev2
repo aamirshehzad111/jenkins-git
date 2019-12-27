@@ -39,7 +39,7 @@ node {
     withAWS(region:'us-east-1') {
        def outputs = cfnUpdate(stack: "service-stack", params: ['ClusterName': "${clusterValue}", 'ImageUrl': "${taskDefImage}",'VPC': "${vpc}", 'TG': "${targetGroup}"],    url:'https://aamir-learning.s3.amazonaws.com/Ecs_jenkin_cf/service.yaml')   
     }
-    sh "echo ${BUILD_NUMBER}"
+    sh "env BUILD_NUMBER"
   }
 
 }
