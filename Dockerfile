@@ -1,2 +1,2 @@
 FROM nginx:latest
-RUN echo "Hello!  commits" > /usr/share/nginx/html/index.html
+RUN echo "env | grep BUILD_NUMBER" > /usr/share/nginx/html/index.html
