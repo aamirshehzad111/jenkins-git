@@ -13,12 +13,13 @@ node {
   docker.withRegistry('https://020046395185.dkr.ecr.us-east-1.amazonaws.com/jenkins-project') {
     docker.image('jenkins-project').push("${last_commit}")
   }
+
+  stage('Deploy'){
+
+  sh "cat taskdef.json | cat > taskdef1.json"
+  sh "aws ecs register-task-definition --execution-role-arn arn:aws:iam::020046395185:role/ecsTaskExecutionRole --cli-input-json file://taskdef1.json --region us-east-1"
+  }
+
 }
 
-stage('Deploy'){
 
- sh "cat taskdef.json | cat > taskdef1.json"
- sh "aws ecs register-task-definition --execution-role-arn arn:aws:iam::020046395185:role/ecsTaskExecutionRole --cli-input-json file://taskdef1.json --region us-east-1"
-
-
-}
