@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 node {
-  taskDefImage= '020046395185.dkr.ecr.us-east-1.amazonaws.com/jenkins-project:latest'
+  taskDefImage= '020046395185.dkr.ecr.us-east-1.amazonaws.com/php-apache-image:latest'
   //def last_commit= sh(script: "git rev-parse --short HEAD", returnStdout: true).trim()
   stage 'Checkout'
   git 'https://github.com/aamirshehzad111/jenkins-git.git'
