@@ -16,7 +16,7 @@ node {
   stage('Deploy'){
    
    withAWS(region:'us-east-1') {
-        def outputs = cfnUpdate(stack: "${cluster}-stack",params:['ClusterName': "${cluster}"], url:'https://aamir-learning.s3.amazonaws.com/Ecs_jenkin_cf/ecs_cluster.yaml)
+        def outputs = cfnUpdate(stack: "${cluster}-stack",params:['ClusterName': "${cluster}"], url:'https://aamir-learning.s3.amazonaws.com/Ecs_jenkin_cf/ecs_cluster.yaml')
          
     }
   }
