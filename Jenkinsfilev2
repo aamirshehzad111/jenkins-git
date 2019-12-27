@@ -5,7 +5,7 @@ node {
   //def last_commit= sh(script: "git rev-parse --short HEAD", returnStdout: true).trim()
   stage 'Checkout'
   git 'https://github.com/aamirshehzad111/jenkins-git.git'
-  
+    
  
   properties([
       parameters(
@@ -18,6 +18,8 @@ node {
       )
 
   ])
+  
+  sh "env | grep BUILD_NUMBER"
   
   
   stage 'Docker build'
