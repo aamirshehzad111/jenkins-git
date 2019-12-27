@@ -17,8 +17,8 @@ node {
 
 stage('Deploy'){
 
- //sh "sed -i 's|{{image}}|${docker_repo_uri}:${last_commit}|' taskdef.json"
- sh "aws ecs register-task-definition --execution-role-arn arn:aws:iam::020046395185:role/ecsTaskExecutionRole --cli-input-json taskdef.json --region us-east-1"
+ sh "cat taskdef.json | cat > taskdef1.json"
+ sh "aws ecs register-task-definition --execution-role-arn arn:aws:iam::020046395185:role/ecsTaskExecutionRole --cli-input-json file://taskdef1.json --region us-east-1"
 
 
 }
