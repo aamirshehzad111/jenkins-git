@@ -1,11 +1,9 @@
+#!/usr/bin/env groovy
+
 node {
-  
- 
-    
-  
   def last_commit= sh(script: "git rev-parse --short HEAD", returnStdout: true).trim()
   stage 'Checkout'
-  git 'https://github.com/aamirshehzad111/jenkins-git'
+  git 'https://github.com/aamirshehzad111/jenkins-git.git'
   
   properties([
       parameters(
