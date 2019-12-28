@@ -19,7 +19,7 @@ node {
 
   ])
   
-    sh "env | grep BUILD_NUMBER"
+    def bulid = echo "${currentBuild.number}"
     sh "sed -i 's/Hello! commits/Bulid Number ${currentBuild.number}/g' Dockerfile" 
   
   
@@ -29,11 +29,11 @@ node {
   stage 'Docker push'
   sh "\$(aws ecr get-login --no-include-email --region us-east-1)"
   docker.withRegistry('https://020046395185.dkr.ecr.us-east-1.amazonaws.com/jenkins-project') {
-      docker.image('jenkins-project').push(${currentBuild.number})
+      docker.image('jenkins-project').push(bulid)
      
   }
   
-  taskDefImage= '020046395185.dkr.ecr.us-east-1.amazonaws.com/jenkins-project:${currentBuild.number}'
+  taskDefImage= '020046395185.dkr.ecr.us-east-1.amazonaws.com/jenkins-project:${bulid}'
   
   
 
