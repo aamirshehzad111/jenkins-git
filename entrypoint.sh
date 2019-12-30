@@ -1,10 +1,11 @@
 #!/bin/sh
+set -e
+
 printenv BULID
 touch aaamir.txt
 printenv BULID  > /usr/share/nginx/html/index.html
 
-#!/bin/bash
-set -e
+
 
 [[ $DEBUG == true ]] && set -x
 
