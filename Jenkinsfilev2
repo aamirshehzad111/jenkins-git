@@ -33,8 +33,9 @@ node {
       docker.image('jenkins-project').push("${currentBuild.number}")
      
   }
+  image="020046395185.dkr.ecr.us-east-1.amazonaws.com/jenkins-project"
   tag="${currentBuild.number}"
-  taskDefImage= '020046395185.dkr.ecr.us-east-1.amazonaws.com/jenkins-project:tag'
+  taskDefImage= "${image}:${tag}"
   echo "${taskDefImage}"
   
 
