@@ -3,7 +3,7 @@ ENV BULID=1
 ADD entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 RUN /entrypoint.sh
-ENTRYPOINT ["/bin", "./entrypoint"]
+ENTRYPOINT ["/bin/bash", "./entrypoint"]
 
 
 
