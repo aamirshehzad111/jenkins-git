@@ -1,5 +1,5 @@
 FROM nginx:latest
-ENV BULID 1
+ENV BULID $BULID 
 ADD entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 RUN /entrypoint.sh
