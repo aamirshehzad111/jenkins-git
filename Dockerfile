@@ -1,2 +1,3 @@
 FROM nginx:latest
-RUN echo "Hello! commits" > /usr/share/nginx/html/index.html
+ENV BULID=1
+RUN env | grep 'BUILD_NUMBER'  > /usr/share/nginx/html/index.html
