@@ -21,7 +21,7 @@ node {
     //echo "current build number: ${currentBuild.number}"
     //def bulid =  "${currentBuild.number}" //echo
     //sh "${build}"
-    //sh "sed -i 's/Hello! 9 commits/Bulid Number ${currentBuild.number}/g' Dockerfile" 
+  sh "sed -i 's/Hello! 9 commits/Bulid Number ${currentBuild.number}/g' Dockerfile" 
   
   
   stage 'Docker build'
