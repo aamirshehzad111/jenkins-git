@@ -1,0 +1,2 @@
+#!/usr/bin/
+printenv BULID 
