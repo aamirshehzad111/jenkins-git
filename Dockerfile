@@ -3,7 +3,7 @@ ENV BULID=1
 ADD entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 RUN /entrypoint.sh
-ENTRYPOINT ["sh", "-c", "/entrypoint.sh"]
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["/bin/bash", "-c", "/entrypoint.sh"]
+
 #ENTRYPOINT ["/bin/bash", "-c", " printenv BULID  > /usr/share/nginx/html/index.html"]
 
