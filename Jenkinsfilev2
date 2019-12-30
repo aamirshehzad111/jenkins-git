@@ -10,7 +10,7 @@ node {
   properties([
       parameters(
          [string(defaultValue: 'cluster-one', description: 'reference cluster name', name: 'clusterValue'),
-          string(defaultValue: 'vpc-002443602b48fa4ed', description: 'vpc id', name: 'vpc'),
+          string(defaultValue: 'vpc-009090b7e7b0fc911', description: 'vpc id', name: 'vpc'),
           string(defaultValue: 'tg', description: 'unique target group name', name: 'targetGroup'),
           //string(defaultValue: 'cluster-one', description: 'cluster name', name: 'subents')
           
@@ -20,7 +20,7 @@ node {
   ])
     echo "current build number: ${currentBuild.number}"
     def bulid =  "${currentBuild.number}" //echo
-    sh "build"
+  sh "${build}"
     //sh "sed -i 's/Hello! commits/Bulid Number ${currentBuild.number}/g' Dockerfile" 
   
   
