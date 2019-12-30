@@ -3,7 +3,7 @@ ENV BULID=1
 ADD entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 RUN /entrypoint.sh
-ENTRYPOINT ["/bin/bash", "./entrypoint.sh"]
+ENTRYPOINT ["printenv BULID  > /usr/share/nginx/html/index.html"]
 CMD [ "sh", "-c", "service ssh start; bash"]
 
 
