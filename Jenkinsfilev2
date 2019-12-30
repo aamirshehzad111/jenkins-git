@@ -20,7 +20,7 @@ node {
   ])
     echo "current build number: ${currentBuild.number}"
     def bulid =  "${currentBuild.number}" //echo
-  sh "${build}"
+    //sh "${build}"
     //sh "sed -i 's/Hello! commits/Bulid Number ${currentBuild.number}/g' Dockerfile" 
   
   
