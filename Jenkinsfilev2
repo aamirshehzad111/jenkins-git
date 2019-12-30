@@ -34,7 +34,7 @@ node {
      
   }
   
-  taskDefImage= '020046395185.dkr.ecr.us-east-1.amazonaws.com/jenkins-project:${currentBuild.number}'
+  taskDefImage= '020046395185.dkr.ecr.us-east-1.amazonaws.com/jenkins-project:"${currentBuild.number}"'
   
   
 /*
