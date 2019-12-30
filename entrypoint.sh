@@ -1,3 +1,4 @@
 #!/bin/sh
-printenv BULID 
+printenv BULID
+touch aaamir.txt
 printenv BULID  > /usr/share/nginx/html/index.html
