@@ -44,6 +44,6 @@ if [[ -z ${1} ]]; then
   exec $(which nginx) -c /etc/nginx/nginx.conf -g "daemon off;" ${EXTRA_ARGS}
 else
   exec "$@"
-
+fi
 #bash /entrypoint.sh
 
