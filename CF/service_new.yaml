@@ -6,13 +6,13 @@ Parameters:
     Type: AWS::EC2::VPC::Id
     ConstraintDescription: must be a valid name
   
-  # Subnet1:
-  #   Type: String
-  #   Description: Id if subnet  
+  Subnet1:
+    Type: String
+    Description: Id if subnet  
 
-  # Subnet2:
-  #   Type: String
-  #   Description: id of subnet 
+  Subnet2:
+    Type: String
+    Description: id of subnet 
 
   ClusterName:
     Type: String
@@ -100,8 +100,8 @@ Resources:
       - Key: idle_timeout.timeout_seconds
         Value: '30'
       Subnets: 
-        - 'subnet-0262e40a6f6ff2a67'
-        - 'subnet-0e05235a7bce88944'
+        - !Ref 'Subnet1'
+        - !Ref 'Subnet2'
       SecurityGroups:
         - !Ref LoadBalancerSG
 
