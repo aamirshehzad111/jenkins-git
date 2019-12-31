@@ -2,7 +2,7 @@
 
 node {
   
-  //def last_commit= sh(script: "git rev-parse --short HEAD", returnStdout: true).trim()
+  
   stage 'Checkout'
   git 'https://github.com/aamirshehzad111/jenkins-git.git'
     
@@ -12,16 +12,14 @@ node {
          [string(defaultValue: 'cluster-one', description: 'reference cluster name', name: 'clusterValue'),
           string(defaultValue: 'vpc-08dd8c8dd70f7b6a7', description: 'vpc id', name: 'vpc'),
           string(defaultValue: 'tg', description: 'unique target group name', name: 'targetGroup'),
-          //string(defaultValue: 'app-svc', description: 'Unique Name of Service', name: 'service')
+          //string(defaultValue: '', description: 'subnet id', name: 'subnet1')
+          //string(defaultValue: '', description: 'subnet id', name: 'subnet2')
           
          ] 
       )
 
   ])
-    //echo "current build number: ${currentBuild.number}"
-    //def bulid =  "${currentBuild.number}" //echo
-    //sh "${build}"
-  //sh "sed -i 's/Hello! 9 commits/Bulid Number ${currentBuild.number}/g' Dockerfile" 
+
   
   
   stage 'Docker build'
@@ -41,9 +39,8 @@ node {
 
   stage('Deploy'){
     
-   //echo "current build number: ${currentBuild.number}"
-  //sh "cat taskdef.json | cat > taskdef1.json"
-  //sh "aws ecs register-task-definition --execution-role-arn arn:aws:iam::020046395185:role/ecsTaskExecutionRole --cli-input-json file://taskdef1.json --region us-east-1"
+ 
+    //sh "aws ecs register-task-definition --execution-role-arn arn:aws:iam::020046395185:role/ecsTaskExecutionRole --cli-input-json file://taskdef1.json --region us-east-1"
     withAWS(region:'us-east-1') {
        def outputs = cfnUpdate(stack: "service-stack", params: ['ClusterName': "${clusterValue}", 'ImageUrl': "${taskDefImage}",'VPC': "${vpc}", 'TG': "${targetGroup}", 'BuildNumber':"${currentBuild.number}"],    url:'https://aamir-learning.s3.amazonaws.com/Ecs_jenkin_cf/service_new.yaml')   
     } 
