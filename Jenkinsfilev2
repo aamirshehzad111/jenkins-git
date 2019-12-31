@@ -10,7 +10,7 @@ node {
   properties([
       parameters(
          [string(defaultValue: 'cluster-one', description: 'reference cluster name', name: 'clusterValue'),
-          string(defaultValue: 'vpc-009090b7e7b0fc911', description: 'vpc id', name: 'vpc'),
+          string(defaultValue: 'vpc-08dd8c8dd70f7b6a7', description: 'vpc id', name: 'vpc'),
           string(defaultValue: 'tg', description: 'unique target group name', name: 'targetGroup'),
           //string(defaultValue: 'app-svc', description: 'Unique Name of Service', name: 'service')
           
@@ -45,7 +45,7 @@ node {
   //sh "cat taskdef.json | cat > taskdef1.json"
   //sh "aws ecs register-task-definition --execution-role-arn arn:aws:iam::020046395185:role/ecsTaskExecutionRole --cli-input-json file://taskdef1.json --region us-east-1"
     withAWS(region:'us-east-1') {
-       def outputs = cfnUpdate(stack: "service-stack", params: ['ClusterName': "${clusterValue}", 'ImageUrl': "${taskDefImage}",'VPC': "${vpc}", 'TG': "${targetGroup}", 'BuildNumber':"${currentBuild.number}"],    url:'https://aamir-learning.s3.amazonaws.com/Ecs_jenkin_cf/service1.yaml')   
+       def outputs = cfnUpdate(stack: "service-stack", params: ['ClusterName': "${clusterValue}", 'ImageUrl': "${taskDefImage}",'VPC': "${vpc}", 'TG': "${targetGroup}", 'BuildNumber':"${currentBuild.number}"],    url:'https://aamir-learning.s3.amazonaws.com/Ecs_jenkin_cf/service_new.yaml')   
     } 
     
   }  
