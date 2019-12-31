@@ -39,7 +39,7 @@ node {
   echo "${taskDefImage}"
   
 
- /* stage('Deploy'){
+  stage('Deploy'){
     
    //echo "current build number: ${currentBuild.number}"
   //sh "cat taskdef.json | cat > taskdef1.json"
@@ -48,7 +48,7 @@ node {
        def outputs = cfnUpdate(stack: "service-stack", params: ['ClusterName': "${clusterValue}", 'ImageUrl': "${taskDefImage}",'VPC': "${vpc}", 'TG': "${targetGroup}", 'BuildNumber':"${currentBuild.number}"],    url:'https://aamir-learning.s3.amazonaws.com/Ecs_jenkin_cf/service.yaml')   
     } 
     
-  }  */
+  }  
 
 }
 
