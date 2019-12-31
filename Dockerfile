@@ -1,8 +1,8 @@
 FROM nginx:latest
-ARG BUILD=1
+ARG BUILD=default_value
 #ADD entrypoint.sh /
 #RUN chmod +x /entrypoint.sh
-RUN  echo $BUILD > /usr/share/nginx/html/index.html
+RUN  echo "BUILD NUMBER IS $BUILD" > /usr/share/nginx/html/index.html
 
 #RUN /entrypoint.sh
 #CMD ["bash", "/entrypoint.sh"]
